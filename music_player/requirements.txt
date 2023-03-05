@@ -1,0 +1,9 @@
+python-decouple
+django-heroku
+pylint-django
+django-cors-headers
+djangorestframework-simplejwt
+gunicorn
+whitenoise
+psycopg2
+dj-database-url

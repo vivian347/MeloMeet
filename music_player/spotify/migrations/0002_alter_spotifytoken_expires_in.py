@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='spotifytoken',
             name='expires_in',
-            field=models.IntegerField(),
+            field=models.DateTimeField(),
         ),
     ]

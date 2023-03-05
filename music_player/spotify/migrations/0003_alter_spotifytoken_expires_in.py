@@ -15,4 +15,6 @@ class Migration(migrations.Migration):
             name='expires_in',
             field=models.DateTimeField(),
         ),
+        # migrations.RunSQL(
+        #     'UPDATE spotify_spotifytoken SET expires_in = EXTRACT(epoch FROM expires_in)', reverse_sql=''),
     ]
