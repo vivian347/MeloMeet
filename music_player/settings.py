@@ -15,9 +15,47 @@ from decouple import config
 import dj_database_url
 import django_heroku
 import os
+import logging.config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+#BASE_DIR = Path(__file__).resolve().parent.parent
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+LOGGING_CONFIG = None
+LOG_ROOT = os.path.join(BASE_DIR, 'logs')
+if not os.path.exists(LOG_ROOT):
+    os.makedirs(LOG_ROOT)
+    os.chmod(LOG_ROOT, 0o777)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(LOG_ROOT, 'melomeet.log'),
+            'maxBytes': 1024 * 1024 * 5,  # 5MB
+            'backupCount': 5,
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(asctime)s %(levelname)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+    },
+}
+
+logging.config.dictConfig(LOGGING)
 
 
 # Quick-start development settings - unsuitable for production
@@ -96,6 +134,11 @@ WSGI_APPLICATION = 'music_player.wsgi.application'
 #     }
 # }
 
+print(config('DB_NAME'))
+print(config('USER_NAME'))
+print(config('PASSWORD'))
+print(config('HOST'))
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -108,6 +151,7 @@ DATABASES = {
 }
 
 db_from_env = dj_database_url.config(conn_max_age=600)
+print(db_from_env)
 DATABASES['default'].update(db_from_env)
 
 # Password validation
