@@ -7,3 +7,6 @@ gunicorn
 whitenoise
 psycopg2
 dj-database-url
+django
+djangorestframework
+requests
