@@ -67,7 +67,7 @@ SECRET_KEY = 'django-insecure-pn37h=2ksfk+s!ps^datwcxsx19bxz5yh%jb9g57*i_4ge8-lv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'melomeet.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'melomeet-5rs2.onrender.com']
 
 
 # Application definition
