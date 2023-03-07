@@ -7462,3 +7462,521 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.spotify.com',
 2023-03-07 11:36:00,955 INFO basehttp 91736 140224910849600 - Broken pipe from ('127.0.0.1', 58514)
 2023-03-07 18:16:24,822 INFO autoreload 91736 140225200295936 /home/veeee/Desktop/Music Player/music_player/settings.py changed, reloading.
 2023-03-07 18:16:31,750 INFO autoreload 113085 139900363923456 Watching for file changes with StatReloader
+2023-03-07 19:27:18,570 INFO autoreload 119290 139713736470528 Watching for file changes with StatReloader
+2023-03-07 19:45:41,754 INFO autoreload 120844 140065984356352 Watching for file changes with StatReloader
+2023-03-07 19:46:16,050 INFO basehttp 120844 140065847449152 "GET / HTTP/1.1" 200 622
+2023-03-07 19:46:16,053 INFO basehttp 120844 140065847449152 "GET / HTTP/1.1" 200 622
+2023-03-07 19:46:21,700 INFO basehttp 120844 140065839056448 "GET /static/frontend/main.js HTTP/1.1" 200 393160
+2023-03-07 19:46:21,754 INFO basehttp 120844 140065847449152 "GET /static/css/index.css HTTP/1.1" 200 448
+2023-03-07 19:46:23,590 INFO basehttp 120844 140065847449152 "GET /api/user-in-room HTTP/1.1" 200 14
+2023-03-07 19:46:24,305 INFO basehttp 120844 140065847449152 "GET /api/user-in-room HTTP/1.1" 200 14
+2023-03-07 19:46:24,661 WARNING log 120844 140065847449152 Not Found: /favicon.ico
+2023-03-07 19:46:24,661 WARNING basehttp 120844 140065847449152 "GET /favicon.ico HTTP/1.1" 404 2951
+2023-03-07 19:46:24,712 WARNING log 120844 140065847449152 Not Found: /favicon.ico
+2023-03-07 19:46:24,712 WARNING basehttp 120844 140065847449152 "GET /favicon.ico HTTP/1.1" 404 2951
+2023-03-07 19:46:44,593 INFO basehttp 120844 140065847449152 "POST /api/create-room HTTP/1.1" 201 151
+2023-03-07 19:46:44,626 INFO basehttp 120844 140065847449152 "GET /api/get-room?code=IJAQIQ HTTP/1.1" 200 166
+2023-03-07 19:46:45,952 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:46:45,954 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:46:46,660 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:46:46,661 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:46:47,659 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:46:47,660 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:46:48,651 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:46:48,652 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:46:49,652 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:46:49,653 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:46:50,652 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:46:50,653 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:46:51,651 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:46:51,652 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:46:52,659 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:46:52,660 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:46:53,651 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:46:53,652 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:46:54,694 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:46:54,695 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:46:55,649 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:46:55,650 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:46:56,649 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:46:56,650 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:46:57,655 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:46:57,656 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:46:58,650 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:46:58,651 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:46:59,651 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:46:59,652 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:47:00,659 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:47:00,660 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:47:01,654 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:47:01,654 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:47:02,651 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:47:02,652 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:47:03,650 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:47:03,651 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:47:04,652 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:47:04,653 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
+2023-03-07 19:47:05,650 ERROR log 120844 140065847449152 Internal Server Error: /spotify/current-song
+Traceback (most recent call last):
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/veeee/.local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/veeee/Desktop/Music Player/spotify/views.py", line 73, in get
+    response = execute_spotify_api_request(host, endpoint)
+  File "/home/veeee/Desktop/Music Player/spotify/util.py", line 74, in execute_spotify_api_request
+    'Authorization': "Bearer " + tokens.access_token}
+AttributeError: 'NoneType' object has no attribute 'access_token'
+2023-03-07 19:47:05,651 ERROR basehttp 120844 140065847449152 "GET /spotify/current-song HTTP/1.1" 500 99773
