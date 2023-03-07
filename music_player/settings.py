@@ -101,7 +101,12 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    'https://melomeet-5rs2.onrender.com',
+]
+
 CORS_ORIGIN_ALLOW_ALL = True
+
 
 ROOT_URLCONF = 'music_player.urls'
 
