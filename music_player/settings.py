@@ -18,9 +18,9 @@ import os
 import logging.config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-#BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 LOGGING_CONFIG = None
@@ -132,32 +132,32 @@ WSGI_APPLICATION = 'music_player.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-print(config('DB_NAME'))
-print(config('USER_NAME'))
-print(config('PASSWORD'))
-print(config('HOST'))
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('DB_NAME'),
-        'USER': config('USER_NAME'),
-        'PASSWORD': config('PASSWORD'),
-        'HOST': config('HOST'),
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-print(db_from_env)
-DATABASES['default'].update(db_from_env)
+# print(config('DB_NAME'))
+# print(config('USER_NAME'))
+# print(config('PASSWORD'))
+# print(config('HOST'))
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': config('DB_NAME'),
+#         'USER': config('USER_NAME'),
+#         'PASSWORD': config('PASSWORD'),
+#         'HOST': config('HOST'),
+#         'PORT': '5432',
+#     }
+# }
+
+# db_from_env = dj_database_url.config(conn_max_age=600)
+# print(db_from_env)
+# DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
