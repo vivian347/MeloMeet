@@ -10,7 +10,7 @@ const Room = (props) => {
 
   const [votesToSkip, setVotesToSkip] = useState(2);
   const [guestCanPause, setGuestCanPause] = useState(false);
-  const [isHost, setIsHost] = useState(false);
+  const [isHost, setIsHost] = useState(true);
   const [showSettings, setShowSettings] = useState(false);
   const [spotifyAuthenticated, setSpotifyAuthenticated] = useState(false);
   const [song, setSong] = useState({});
@@ -22,7 +22,6 @@ const Room = (props) => {
     .then((response) => response.json())
     .then((data) => {
       setSpotifyAuthenticated(data.status);
-      console.log(data.status);
       if (!data.status) {
         fetch('/spotify/get-auth-url')
         .then((response) => response.json())
@@ -47,7 +46,8 @@ const Room = (props) => {
         setGuestCanPause(data.guest_can_pause);
         setIsHost(data.is_host);
 
-        if (isHost){
+        console.log(isHost);
+        if (isHost) {
           authenticateSpotify();
         }
       });

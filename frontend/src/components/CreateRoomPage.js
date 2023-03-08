@@ -36,6 +36,7 @@ const CreateRoomPage = (props) => {
         setGuestCanPause(e.target.value === "true");
     };
 
+
     const handleRoomButtonPressed = () => {
         const requestOptions = {
         method: 'POST',
@@ -46,6 +47,7 @@ const CreateRoomPage = (props) => {
         }),
         };
         fetch("/api/create-room", requestOptions).then((response) => response.json()).then((data) => navigate('/room/' + data.code));
+        
     };
 
     const handleUpdateButtonPressed = () => {
