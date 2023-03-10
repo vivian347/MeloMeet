@@ -9,25 +9,33 @@ This project was developed by [Vivian Kinyua] and [Mercy Korir]. You can find us
 ## Installation
 To install [MeloMeet], follow this steps:
     1. Clone the repository to your local machine using `git clone https://github.com/vivian347/MeloMeet`
+    <br/>
     2. Navigate to the project directory using `cd MeloMeet`
+    <br/>
     3. Install the dependencies using `npm install`
 
 ## Usage
 To use [MeloMeet], follow these steps:
     1. Navigate to the project directory using `cd MeloMeet`
+    <br/>
     2. Start the server using `npm start`
+    <br/>
     3. Open a web browser and go to `http://localhost:3000`
 
 ## Contributing
 We welcome contributions from anyone. To contribute to MeloMeet, follow these steps:
     1. Fork the repository
+    <br/>
     2. Create a new branch with your changes using `git checkout -b my-feature-branch`
+    <br/>
     3. Make your changes and commit them using `git commit -m "Add some feature"`
+    <br/>
     4. Push your changes to your fork using `git push origin my-feature-branch`
+    <br/>
     5. Create a pull request on the main repository.
 
 ## Related Projects
-    - [Landing Page](https://mercykorir.github.io/)
+    [Landing Page](https://mercykorir.github.io/)
 
 ## Licensing
 MeloMeet is licensed under the GNU General Public License v3.0 See the [LICENSE](https://github.com/vivian347/MeloMeet/blob/main/LICENSE.txt) file for more information.
