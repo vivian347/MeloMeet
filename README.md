@@ -1,13 +1,13 @@
 # Project Name
-[MeloMeet] is the perfect platform for music lovers. One user acting as the host shares a room and everyone else can join the room using a code provided and share their favorite music in synchronization.
+MeloMeet is the perfect platform for music lovers. One user acting as the host shares a room and everyone else can join the room using a code provided and share their favorite music in synchronization.
 <br/>
 You can check out the deployed site [here](https://melomeet-5rs2.onrender.com/). 
 <br/>
-This project was developed by [Vivian Kinyua] and [Mercy Korir]. You can find us on LinkedIn at [Vivian Kinyua](https://www.linkedin.com/in/vivian-kinyua-5289051a0/) and [Mercy Korir](https://www.linkedin.com/in/mercychelangatkorir/)
+This project was developed by Vivian Kinyua and Mercy Korir. You can find us on LinkedIn at [Vivian Kinyua](https://www.linkedin.com/in/vivian-kinyua-5289051a0/) and [Mercy Korir](https://www.linkedin.com/in/mercychelangatkorir/)
 <br/>
 
 ## Installation
-To install [MeloMeet], follow this steps:
+To install MeloMeet, follow this steps:
     1. Clone the repository to your local machine using `git clone https://github.com/vivian347/MeloMeet`
     <br/>
     2. Navigate to the project directory using `cd MeloMeet`
@@ -15,7 +15,7 @@ To install [MeloMeet], follow this steps:
     3. Install the dependencies using `npm install`
 
 ## Usage
-To use [MeloMeet], follow these steps:
+To use MeloMeet, follow these steps:
     1. Navigate to the project directory using `cd MeloMeet`
     <br/>
     2. Start the server using `npm start`
