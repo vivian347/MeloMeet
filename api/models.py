@@ -2,6 +2,8 @@ from django.db import models
 import string
 import random
 
+# function that generates unique room codes once a room is created
+
 
 def generate_unique_code():
     length = 6
@@ -13,7 +15,7 @@ def generate_unique_code():
 
     return code
 
-# Create your models here.
+# Room model
 
 
 class Room(models.Model):

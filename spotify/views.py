@@ -11,6 +11,8 @@ from .models import Vote
 
 
 class AuthURL(APIView):
+    """Redirects users to spotify page to authorize the app"""
+
     def get(self, request, format=None):
         scopes = 'user-read-playback-state user-modify-playback-state user-read-currently-playing'
 
@@ -25,6 +27,7 @@ class AuthURL(APIView):
 
 
 def spotify_callback(request, format=None):
+    """After authorizing the app is give access to data that allows it to access host's spotify."""
     code = request.GET.get('code')
     error = request.GET.get('error')
 
@@ -48,10 +51,13 @@ def spotify_callback(request, format=None):
     update_or_create_user_tokens(
         request.session.session_key, access_token, token_type, expires_in, refresh_token)
 
+    """Users are then redirected to the room page he/she is currently in"""
     return redirect('frontend:')
 
 
 class IsAuthenticated(APIView):
+    """Check if the app is authenticated by the user"""
+
     def get(self, request, format=None):
         is_authenticated = is_spotify_authenticated(
             self.request.session.session_key)
@@ -59,6 +65,8 @@ class IsAuthenticated(APIView):
 
 
 class CurrentSong(APIView):
+    """Get details of the current song playing on the host's spotify"""
+
     def get(self, request, format=None):
         room_code = self.request.session.get('room_code')
 
@@ -117,6 +125,8 @@ class CurrentSong(APIView):
 
 
 class PauseSong(APIView):
+    """Allow users to pause song"""
+
     def put(self, request, format=None):
         room_code = self.request.session.get('room_code')
         room = Room.objects.filter(code=room_code)[0]
@@ -128,6 +138,8 @@ class PauseSong(APIView):
 
 
 class PlaySong(APIView):
+    """Allow users to pause song"""
+
     def put(self, request, format=None):
         room_code = self.request.session.get('room_code')
         room = Room.objects.filter(code=room_code)[0]
@@ -139,6 +151,8 @@ class PlaySong(APIView):
 
 
 class SkipSong(APIView):
+    """Allow users to skip song"""
+
     def post(self, request, format=None):
         room_code = self.request.session.get('room_code')
         room = Room.objects.filter(code=room_code)[0]

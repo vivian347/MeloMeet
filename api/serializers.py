@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from .models import Room
 
+# Convert specific data to JSON format
+
 
 class RoomSerializer(serializers.ModelSerializer):
     class Meta:

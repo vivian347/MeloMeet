@@ -20,9 +20,9 @@ def get_user_tokens(session_id):
 
 
 def update_or_create_user_tokens(session_id, access_token, token_type, expires_in, refresh_token):
+    """Updates or creates user tokens required to access the Spotify of he host"""
     tokens = get_user_tokens(session_id)
     expires_in = timezone.now() + timedelta(seconds=expires_in)
-    print('Expires in before update: >>>>>>>>>>>', expires_in)
 
     if tokens:
         tokens.access_token = access_token
@@ -35,14 +35,15 @@ def update_or_create_user_tokens(session_id, access_token, token_type, expires_i
         tokens = SpotifyToken(user=session_id, access_token=access_token,
                               refresh_token=refresh_token, token_type=token_type, expires_in=expires_in)
         tokens.save()
-    print('Expires in after update:>>>>>>>>>>', expires_in)
 
 
 def is_spotify_authenticated(session_id):
+    """Check if spotify is authenticated"""
     tokens = get_user_tokens(session_id)
     if tokens:
         expiry = tokens.expires_in
         if expiry <= timezone.now():
+            """if tokens have expired refresh the tokens"""
             refresh_spotify_token(session_id)
 
         return True
@@ -51,6 +52,7 @@ def is_spotify_authenticated(session_id):
 
 
 def refresh_spotify_token(session_id):
+    """Refresh tokens once expired"""
     refresh_token = get_user_tokens(session_id).refresh_token
 
     response = post('https://accounts.spotify.com/api/token', data={
@@ -69,6 +71,7 @@ def refresh_spotify_token(session_id):
 
 
 def execute_spotify_api_request(session_id, endpoint, post_=False, put_=False):
+    """Executes any request made to the spotify APIs endpoints"""
     tokens = get_user_tokens(session_id)
     headers = {'Content-Type': 'application/json',
                'Authorization': "Bearer " + tokens.access_token}
@@ -99,14 +102,17 @@ def execute_spotify_api_request(session_id, endpoint, post_=False, put_=False):
 
 
 def play_song(session_id):
+    """Enables users to have play functionalities"""
     return execute_spotify_api_request(session_id, "player/play", put_=True)
 
 
 def pause_song(session_id):
+    """Enables users to have pause functionalities"""
     return execute_spotify_api_request(session_id, "player/pause", put_=True)
 
 
 def skip_song(session_id):
+    """Enables users to have skip functionalities"""
     try:
         response = execute_spotify_api_request(
             session_id, "player/next", post_=True)

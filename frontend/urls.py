@@ -1,8 +1,9 @@
 from django.urls import path
 from .views import index
 
-app_name = 'frontend'
+app_name = 'frontend'  # enable spotify to redirect to frontend
 
+"""frontend urls"""
 urlpatterns = [
     path('', index, name=''),
     path('join', index),

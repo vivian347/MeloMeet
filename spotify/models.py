@@ -1,6 +1,8 @@
 from django.db import models
 from api.models import Room
 
+"""Model that allows users to save data from the Spotify API"""
+
 
 class SpotifyToken(models.Model):
     user = models.CharField(max_length=80, unique=True)
@@ -9,6 +11,9 @@ class SpotifyToken(models.Model):
     access_token = models.CharField(max_length=250, default='')
     expires_in = models.DateTimeField()
     token_type = models.CharField(max_length=50, default='')
+
+
+"""Model that saves And updates votes in a room accordingly"""
 
 
 class Vote(models.Model):

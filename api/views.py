@@ -8,8 +8,6 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import JsonResponse
 
-# Create your views here.
-
 
 class RoomView(generics.ListAPIView):
     # view that is set up to return to us all the diff Rooms
@@ -18,6 +16,7 @@ class RoomView(generics.ListAPIView):
 
 
 class GetRoom(APIView):
+    # view set up to return a room with a specific room_code
     serializer_class = RoomSerializer
     lookup_url_kwargs = 'code'
 
@@ -34,15 +33,19 @@ class GetRoom(APIView):
 
 
 class JoinRoom(APIView):
+    # allows a user to join a room using the room code provided by the host
     lookup_url_kwargs = 'code'
 
     def post(self, request, format=None):
         if not self.request.session.exists(self.request.session.session_key):
+            # check if session key exists, if not create a new one
             self.request.session.create()
 
         code = request.data.get(self.lookup_url_kwargs)
+        # Check if the 'code' parameter was present in the request data
         if code != None:
             room_result = Room.objects.filter(code=code)
+            # Check if room object was found, if found query the 1st room object
             if len(room_result) > 0:
                 room = room_result[0]
                 self.request.session['room_code'] = code
@@ -54,10 +57,12 @@ class JoinRoom(APIView):
 
 
 class CreateRoomView(APIView):
+    # Allows host to create a new room
     serializer_class = CreateRoomSerializer
 
     def post(self, request, format=None):
         if not self.request.session.exists(self.request.session.session_key):
+            # check if session key exists, if not create a new one
             self.request.session.create()
 
         serializer = self.serializer_class(data=request.data)
@@ -88,6 +93,7 @@ class CreateRoomView(APIView):
 class UserInRoom(APIView):
     def get(self, request, format=None):
         if not self.request.session.exists(self.request.session.session_key):
+            """check if session key exists, if not create a new one"""
             self.request.session.create()
 
         data = {
@@ -97,8 +103,11 @@ class UserInRoom(APIView):
 
 
 class LeaveRoom(APIView):
+    """Allows users to leave room"""
+
     def post(self, request, format=None):
         if 'room_code' in self.request.session:
+            """If room_code exists delete the room"""
             self.request.session.pop('room_code')
             host_id = self.request.session.session_key
             room_results = Room.objects.filter(host=host_id)
@@ -110,14 +119,17 @@ class LeaveRoom(APIView):
 
 
 class UpdateRoom(APIView):
+    """Allows host to update room data"""
     serializer_class = UpdateRoomSerializer
 
     def patch(self, request, format=None):
         if not self.request.session.exists(self.request.session.session_key):
+            """check if session key exists, if not create a new one"""
             self.request.session.create()
 
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
+            """Check if room serializer is valid and get the required fields"""
             guest_can_pause = serializer.data.get('guest_can_pause')
             votes_to_skip = serializer.data.get('votes_to_skip')
             code = serializer.data.get('code')

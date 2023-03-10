@@ -22,5 +22,4 @@ urlpatterns = [
     path('api/', include('api.urls')),
     path('', include('frontend.urls')),
     path('spotify/', include('spotify.urls')),
-    # re_path('', TemplateView.as_view(template_name='index.html')),
 ]
