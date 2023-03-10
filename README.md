@@ -35,7 +35,7 @@ We welcome contributions from anyone. To contribute to MeloMeet, follow these st
     5. Create a pull request on the main repository.
 
 ## Related Projects
-    [Landing Page](https://mercykorir.github.io/)
+    You can find the link [here](https://mercykorir.github.io/)
 
 ## Licensing
 MeloMeet is licensed under the GNU General Public License v3.0 See the [LICENSE](https://github.com/vivian347/MeloMeet/blob/main/LICENSE.txt) file for more information.
