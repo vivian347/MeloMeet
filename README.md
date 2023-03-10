@@ -30,4 +30,4 @@ We welcome contributions from anyone. To contribute to MeloMeet, follow these st
     - (https://mercykorir.github.io/)
 
 ## Licensing
-MeloMeet is licensed under the GNU General Public License v3.0 See the [LICENSE]() file for more information.
+MeloMeet is licensed under the GNU General Public License v3.0 See the [LICENSE](https://github.com/vivian347/MeloMeet/blob/main/LICENSE.txt) file for more information.
