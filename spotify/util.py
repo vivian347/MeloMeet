@@ -22,6 +22,7 @@ def get_user_tokens(session_id):
 def update_or_create_user_tokens(session_id, access_token, token_type, expires_in, refresh_token):
     """Updates or creates user tokens required to access the Spotify of he host"""
     tokens = get_user_tokens(session_id)
+    print(f"tokens:>>>>>>>>>>{tokens}")
     expires_in = timezone.now() + timedelta(seconds=expires_in)
 
     if tokens:
@@ -61,7 +62,7 @@ def refresh_spotify_token(session_id):
         'client_id': CLIENT_ID,
         'client_secret': CLIENT_SECRET
     }).json()
-
+    print("response >>>>>>>>>>", response)
     access_token = response.get('access_token')
     token_type = response.get('token_type')
     expires_in = response.get('expires_in')

@@ -8,7 +8,9 @@ from rest_framework.response import Response
 from .util import *
 from api.models import Room
 from .models import Vote
+import logging
 
+logger = logging.getLogger(__name__)
 
 class AuthURL(APIView):
     """Redirects users to spotify page to authorize the app"""
@@ -38,6 +40,8 @@ def spotify_callback(request, format=None):
         'client_id': CLIENT_ID,
         'client_secret': CLIENT_SECRET
     }).json()
+
+    print(f"response:>>>>>>>>>>>>{response}" )
 
     access_token = response.get('access_token')
     token_type = response.get('token_type')
@@ -78,9 +82,14 @@ class CurrentSong(APIView):
 
         host = room.host
         endpoint = "player/currently-playing"
+
+        logger.debug(f"Making Spotify API call to {endpoint} for room {room_code}")
+
         response = execute_spotify_api_request(host, endpoint)
 
         if 'error' in response or 'item' not in response:
+            logging.info("No current song found for room {room_code}")
+
             return Response({}, status=status.HTTP_204_NO_CONTENT)
 
         item = response.get('item')
@@ -113,6 +122,8 @@ class CurrentSong(APIView):
 
         self.update_room_song(room, song_id)
 
+        logger.debug(f"Successfully retrieved current song {song_id} for room {room_code}")
+
         return Response(song, status=status.HTTP_200_OK)
 
     def update_room_song(self, room, song_id):
@@ -122,6 +133,8 @@ class CurrentSong(APIView):
             room.current_song = song_id
             room.save(update_fields=['current_song'])
             votes = Vote.objects.filter(room=room).delete()
+        
+        logger.debug(f"Updated current song to {song_id} for room {room.code}")
 
 
 class PauseSong(APIView):

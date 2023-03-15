@@ -19,35 +19,36 @@ const Room = (props) => {
 
   const authenticateSpotify = () => {
     fetch('/spotify/is-authenticated')
-    .then((response) => response.json())
-    .then((data) => {
-      setSpotifyAuthenticated(data.status);
-      if (!data.status) {
-        fetch('/spotify/get-auth-url')
-        .then((response) => response.json())
-        .then((data) => {
-          window.location.replace(data.url);
-        });
-      }
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        setSpotifyAuthenticated(data.status);
+        if (!data.status) {
+          fetch('/spotify/get-auth-url')
+            .then((response) => response.json())
+            .then((data) => {
+              window.location.replace(data.url);
+            });
+        }
+      });
   };
 
 
   const getRoomDetails = () => {
     fetch("/api/get-room" + "?code=" + roomCode)
-      .then((response) => { 
+      .then((response) => {
         if (!response.ok) {
           props.leaveRoomCallback();
           navigate("/");
         }
-        return response.json() })
+        return response.json()
+      })
       .then((data) => {
         setVotesToSkip(data.votes_to_skip);
         setGuestCanPause(data.guest_can_pause);
         setIsHost(data.is_host);
 
         console.log(isHost);
-        if (isHost) {
+        if (isHost == true) {
           authenticateSpotify();
         }
       });
@@ -105,7 +106,7 @@ const Room = (props) => {
       </Grid>
     );
   }
-  
+
   const renderSettingsButton = () => {
     return (
       <Grid item xs={12} align="center">
@@ -115,7 +116,7 @@ const Room = (props) => {
       </Grid>
     )
   }
-  
+
 
   if (showSettings) {
     return renderSettings();
@@ -127,11 +128,11 @@ const Room = (props) => {
           Code: {roomCode}
         </Typography>
       </Grid>
-      <MusicPlayer {...song}/>
+      <MusicPlayer {...song} />
       {isHost ? renderSettingsButton() : null}
 
       <Grid item xs={12} align="center">
-        <Button variant="contained" color="secondary" onClick={ leaveButtonPressed }>
+        <Button variant="contained" color="secondary" onClick={leaveButtonPressed}>
           Leave Room
         </Button>
       </Grid>
